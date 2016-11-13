@@ -1,0 +1,89 @@
+{% load staticfiles %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+
+    <!-- The below 3 meta tags *must* come first in the head -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+		<!-- Meta -->
+		<meta name="author" content="Shane Rice"/>
+		<meta name="title" content="Django Bootstrap"/>
+		<meta name="description" content="Django Bootstrap Template."/>
+
+		<meta property="og:author" content="Shane Rice">
+		<meta property="og:title" content="Django Bootstrap">
+		<meta property="og:description" content="Django Bootstrap Template.">
+		<meta property="og:type" content="website">
+		<meta property="og:url" content="http://{{ request.META.HTTP_HOST }}{% url "home" %}">
+		<meta property="og:image" content="http://{{ request.META.HTTP_HOST }}{% static "images/django.png" %}">
+		<meta property="og:image:type" content="image/png">
+
+		<!-- Title using tag from sub pages -->
+    <title>Django Bootstrap - {% block title %}{% endblock %}</title>
+
+    <!-- Media -->
+    <link rel="icon" href="{% static "favicon.ico" %}">
+
+    <!-- CSS -->
+		<link href="{% static "jquery/jquery-ui.min.css" %}" rel="stylesheet">
+    <link href="{% static "bootstrap/css/bootstrap.min.css" %}" rel="stylesheet">
+
+    <!-- JS placed at end if possible -->
+
+    <!-- Extra -->
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <link href="{% static "bootstrap/css/ie10-viewport-bug-workaround.css" %}" rel="stylesheet">
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+		{% block head %}{% endblock %}
+
+  </head>
+  <body>
+
+    <!-- Main content -->
+    <div class="container">
+
+			<div>
+				{% if request.user.is_authenticated %} <!-- IF logged IN -->
+
+{#					<a href="javascript:document.logout.submit();">Log Out</a>,#}
+					<a href="/accounts/logout/?next={{ request.get_full_path }}">Log Out</a>,
+
+					Logged in as <strong>{{ request.user.username }}</strong>
+
+				{% else %}
+					<a href="/login/?next={{ request.get_full_path }}">Login</a>
+				{% endif %} <!-- IF logged IN -->
+			</div>
+
+			<!-- Page content imported here -->
+			{% block body %}{% endblock %}
+
+			<!-- Place logout form at bottom -->
+			{% if request.user.is_authenticated %}
+				<form class="navbar-form" action="/accounts/logout/" method="POST" name="logout">
+					{% csrf_token %}
+					<input type="hidden" name="next" value="{{ request.get_full_path }}">
+				</form>
+			{% endif %}
+
+		</div> <!-- End Main content -->
+
+    <!-- Load any javascript below here if possible for performance -->
+		<script type="text/javascript" src="{% static "jquery/jquery-1.12.4.min.js" %}"></script>
+		<script type="text/javascript" src="{% static "jquery/jquery-ui.min.js" %}"></script>
+		<script type="text/javascript" src="{% static "bootstrap/js/bootstrap.min.js" %}"></script>
+
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="{% static "bootstrap/js/ie10-viewport-bug-workaround.js" %}"></script>
+
+  </body>
+</html>
