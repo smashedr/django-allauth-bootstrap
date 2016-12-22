@@ -8,7 +8,7 @@ Static files include:
 
 - Bootstrap (3.3.6)
     - http://getbootstrap.com/
-- JQuery (1.12.4)
+- JQuery (3.1.1)
     - https://jquery.com/
 - JQuery UI (1.12.0)
     - https://jqueryui.com/
@@ -40,3 +40,17 @@ Notes for running under Python 2:
 6. `cp settings.ini.example settings.ini`
 7. Edit the settings to your preference.
 8. `python manage.py runserver 0.0.0.0:8000`
+
+# Django AllAuth
+
+https://github.com/pennersr/django-allauth
+
+- This project is pre-configured for Django AllAuth.
+- It includes: `allauth.socialaccount.providers.gitlab`
+- Plus a custom provider setting in: `SOCIALACCOUNT_PROVIDERS`
+- The site is configured as: `SITE_ID = 1`
+
+All you need to do is:
+- Include your desired provider in the settings.py
+- Migrate the database and create a supseruser
+- Log into Django Admin and configure your provider
