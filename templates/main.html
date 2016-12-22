@@ -18,8 +18,8 @@
 		<meta property="og:title" content="Django Bootstrap">
 		<meta property="og:description" content="Django Bootstrap Template.">
 		<meta property="og:type" content="website">
-		<meta property="og:url" content="http://{{ request.META.HTTP_HOST }}{% url "home" %}">
-		<meta property="og:image" content="http://{{ request.META.HTTP_HOST }}{% static "images/django.png" %}">
+		<meta property="og:url" content="{{ request.scheme }}://{{ request.META.HTTP_HOST }}{% url "home" %}">
+		<meta property="og:image" content="{{ request.scheme }}://{{ request.META.HTTP_HOST }}{% static "images/logo.png" %}">
 		<meta property="og:image:type" content="image/png">
 
 		<!-- Title using tag from sub pages -->
