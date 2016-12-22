@@ -1,7 +1,7 @@
 from django.conf.urls import url, include
 from django.views.generic.base import RedirectView
 from django.contrib import admin
-from qemu_site.settings import STATIC_URL
+from django_config.settings import STATIC_URL
 
 import home.views as home
 

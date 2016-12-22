@@ -28,11 +28,14 @@
     <!-- Media -->
     <link rel="icon" href="{% static "favicon.ico" %}">
 
-    <!-- CSS -->
-		<link href="{% static "jquery/jquery-ui.min.css" %}" rel="stylesheet">
-    <link href="{% static "bootstrap/css/bootstrap.min.css" %}" rel="stylesheet">
+	  <!-- CSS -->
+	  <link href="{% static 'jquery/jquery-ui.min.css' %}" rel="stylesheet">
+	  <link href="{% static 'bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
 
-    <!-- JS placed at end if possible -->
+	  <!-- JS -->
+	  <script type="text/javascript" src="{% static 'jquery/jquery-3.1.1.min.js' %}"></script>
+	  <script type="text/javascript" src="{% static 'jquery/jquery-ui.min.js' %}"></script>
+	  <script type="text/javascript" src="{% static 'bootstrap/js/bootstrap.min.js' %}"></script>
 
     <!-- Extra -->
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
@@ -76,11 +79,6 @@
 			{% endif %}
 
 		</div> <!-- End Main content -->
-
-    <!-- Load any javascript below here if possible for performance -->
-		<script type="text/javascript" src="{% static "jquery/jquery-1.12.4.min.js" %}"></script>
-		<script type="text/javascript" src="{% static "jquery/jquery-ui.min.js" %}"></script>
-		<script type="text/javascript" src="{% static "bootstrap/js/bootstrap.min.js" %}"></script>
 
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <script src="{% static "bootstrap/js/ie10-viewport-bug-workaround.js" %}"></script>

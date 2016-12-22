@@ -26,8 +26,8 @@ DEBUG = config.getboolean('App', 'debug')
 SECRET_KEY = config.get('App', 'secret')
 STATIC_ROOT = config.get('App', 'static_root')
 
-ROOT_URLCONF = 'qemu_site.urls'
-WSGI_APPLICATION = 'qemu_site.wsgi.application'
+ROOT_URLCONF = 'home.urls'
+WSGI_APPLICATION = 'django_config.wsgi.application'
 
 LANGUAGE_CODE = 'en-us'
 TIME_ZONE = 'UTC'
