@@ -19,7 +19,7 @@ def login(request):
         except:
             next_url = '/'
     request.session['login_redirect_url'] = next_url
-    return HttpResponseRedirect('/accounts/gitlab/login/?process=login')
+    return HttpResponseRedirect('/accounts/discord/login/?process=login')
 
 
 def oauth_redirect(request):
