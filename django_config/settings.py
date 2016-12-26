@@ -3,6 +3,8 @@ import logging
 from configparser import ConfigParser
 import allauth
 
+allauth = allauth  # PEP8 compatibility
+
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 CONFIG_FILE = os.path.join(BASE_DIR, 'settings.ini')
 
@@ -36,7 +38,7 @@ USE_I18N = True
 USE_L10N = True
 USE_TZ = True
 
-SITE_ID = 1
+SITE_ID = 2
 LOGIN_REDIRECT_URL = "/oauth/"
 ACCOUNT_EMAIL_VERIFICATION = 'optional'
 ACCOUNT_EMAIL_REQUIRED = False
@@ -45,12 +47,6 @@ SOCIALACCOUNT_EMAIL_VERIFICATION = 'none'
 SOCIALACCOUNT_QUERY_EMAIL = True
 SOCIALACCOUNT_EMAIL_REQUIRED = False
 SOCIALACCOUNT_AUTO_SIGNUP = True
-
-SOCIALACCOUNT_PROVIDERS = {
-    "gitlab": {
-        "GITLAB_URL": "https://git.cssnr.com",
-    },
-}
 
 AUTHENTICATION_BACKENDS = (
     'django.contrib.auth.backends.ModelBackend',
@@ -76,7 +72,7 @@ INSTALLED_APPS = [
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
-    'allauth.socialaccount.providers.gitlab',
+    'allauth.socialaccount.providers.discord',
 
     'home',
 ]
@@ -109,8 +105,12 @@ TEMPLATES = [
 ]
 
 AUTH_PASSWORD_VALIDATORS = [
-    {'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator'},
-    {'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator'},
-    {'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator'},
-    {'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator'},
+    {'NAME': 'django.contrib.auth.password_validation.' +
+             'UserAttributeSimilarityValidator'},
+    {'NAME': 'django.contrib.auth.password_validation.' +
+             'MinimumLengthValidator'},
+    {'NAME': 'django.contrib.auth.password_validation.' +
+             'CommonPasswordValidator'},
+    {'NAME': 'django.contrib.auth.password_validation.' +
+             'NumericPasswordValidator'},
 ]
