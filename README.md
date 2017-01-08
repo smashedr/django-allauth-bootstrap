@@ -1,6 +1,6 @@
 # Django Bootstrap
 
-[![build status](https://git.cssnr.com/shane/django_allauth/badges/master/build.svg)](https://git.cssnr.com/shane/django_allauth/commits/master) [![coverage report](https://git.cssnr.com/shane/django_allauth/badges/master/coverage.svg)](https://git.cssnr.com/shane/django_allauth/commits/master)
+[![build status](https://git.cssnr.com/shane/django-allauth-bootstrap/badges/master/build.svg)](https://git.cssnr.com/shane/django-allauth-bootstrap/commits/master) [![coverage report](https://git.cssnr.com/shane/django-allauth-bootstrap/badges/master/coverage.svg)](https://git.cssnr.com/shane/django-allauth-bootstrap/commits/master)
 
 A Django Bootstrap Template Including:
 
